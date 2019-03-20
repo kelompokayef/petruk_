@@ -124,3 +124,44 @@ for(int c = 0 ; c < 15 ; c++){
                 x=0;
             }
         }
+          for(int dr = 14 ; dr >= 0 ; dr--){
+            for(int i=0; i<=(15-pk); i++) {
+            dgl=-1;
+                for(int j=i; j<=i+(pk-1); j++) {
+                    ++dgl;
+                    if(*(*(Y+j)+dr-dgl) == kata[m][x]) ada[x] = 1;
+                    else ada[x] = 0;
+                    x++;
+                }
+     for(int k=0; k<pk; k++) {
+                    if(ada[k]==1) {
+                        result = 1;
+                        nilai[m]+=result;
+                    }
+                else {
+                        result = 0;
+                        break;
+                    }
+                if(nilai[m]==pk) {
+                        fix[m]=1;
+                        goto next;
+                    }
+                }
+                nilai[m]=0;
+                x=0;
+            }
+        }            
+      next:
+        x=0;
+    }
+
+    cout<<endl<<"Hasil kata yang anda cari = "<<endl;
+    for(int a=0; a<xy; a++) {
+        if(fix[a]==1)
+        {
+            cout<<a+1<<". Ada"<<endl;
+        }
+        else cout<<a+1<<". Tidak ada"<<endl;
+    }
+    return 0;
+    }
