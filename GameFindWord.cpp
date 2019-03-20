@@ -71,3 +71,56 @@ cout<<"\t\t\t\tPROGRAM MENCARI KATA "<<endl<<endl<<endl;
                 x=0;
             }
         }
+for(int c = 0 ; c < 15 ; c++){
+            for(int a=0; a<=(15-pk); a++) {
+                for(int b=a; b<=a+(pk-1); b++) {
+                    if(*(*(Y+b)+c) == kata[m][x]) ada[x] = 1;
+                    else ada[x] = 0;
+                    x++;
+                }
+                for(int k=0; k<pk; k++) {
+                    if(ada[k]==1) {
+                        result = 1;
+                        nilai[m]+=result;
+                    }
+                else {
+                result = 0;
+                    break;
+                    }
+                    if(nilai[m]==pk) {
+                        fix[m]=1;
+                        goto next;
+                    }
+                }
+                nilai[m]=0;
+                x=0;
+            }
+        }
+          
+          for(int dn = 0 ; dn < 15 ; dn++){
+            for(int i=0; i<=(15-pk); i++) {
+            dgl=-1;
+                for(int j=i; j<=i+(pk-1); j++) {
+                    ++dgl;
+                    if(*(*(Y+j)+dn+dgl) == kata[m][x]) ada[x] = 1;
+                    else ada[x] = 0;
+                    x++;
+                }
+                for(int k=0; k<pk; k++) {
+                    if(ada[k]==1) {
+                        result = 1;
+                        nilai[m]+=result;
+                    }
+                    else {
+                        result = 0;
+                        break;
+                    }
+                    if(nilai[m]==pk) {
+                        fix[m]=1;
+                        goto next;
+                    }
+                }
+                nilai[m]=0;
+                x=0;
+            }
+        }
